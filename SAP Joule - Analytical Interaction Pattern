@@ -1,0 +1,25 @@
+---
+config:
+  layout: fixed
+---
+flowchart LR
+ subgraph User_Input["User Interface"]
+        B(("SAP Joule AI"))
+        A@{ label: "'Show me top 5 performing products by revenue'" }
+  end
+ subgraph Analytical_Engine["Intelligence Layer"]
+        C{"SAP Analytics Cloud"}
+        D[("Business Data")]
+  end
+    A -- Natural Language --> B
+    B -- Intent Analysis --> C
+    C -- Query Metrics --> D
+    D -- Performance KPIs --> C
+    C -- Generate Visuals/Stats --> B
+    B -- Analytical Insights & Charts --> A
+
+    A@{ shape: rect}
+    style B fill:#0070f2,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#6a1b9a,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#f4f4f4,stroke:#333
+    style User_Input fill:#ffffff,stroke:#333
