@@ -1,0 +1,22 @@
+graph LR
+    subgraph User_Entry [User Request]
+        A["'Take me to the purchase order approval screen'/'Open the job postings dashboard'"] -- "Voice/Text Command" --> B((Joule AI))
+    end
+
+    subgraph Navigation_Logic [Direct Routing]
+        B -- "Identify Target" --> C{Intent Mapper}
+        C -- "Deep Link Generation" --> D[Product Navigation API]
+    end
+
+    subgraph SAP_Ecosystem [Target Destination]
+        D --> E1[Procurement Screen]
+        D --> E2[HR Dashboard]
+        D --> E3[Sales Reports]
+    end
+
+    %% Professional Styling
+    style B fill:#0070f2,stroke:#fff,stroke-width:2px,color:#fff
+    style C fill:#e1f5fe,stroke:#01579b,stroke-dasharray: 5 5
+    style E1 fill:#f4f4f4,stroke:#333
+    style E2 fill:#f4f4f4,stroke:#333
+    style E3 fill:#f4f4f4,stroke:#333
