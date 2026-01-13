@@ -1,6 +1,6 @@
-graph TD
+graph LR
     subgraph User_Layer [User Interaction]
-        A["'What is our company travel policy?'/ 'Show me SAP's guidelines for creaging a custom Integration Flow'"] -- Natural Language Prompt --> B((Joule AI))
+        A["'What is our company travel policy?'/ 'Show me SAP's guidelines for creaging a custom Integration Flow'"] -- "Natural Language" --> B((Joule AI))
     end
 
     subgraph Intelligence_Layer [Processing]
@@ -8,19 +8,16 @@ graph TD
     end
 
     subgraph Knowledge_Sources [Data Repositories]
-        C -- "External Knowledge" --> D[SAP Help Pages]
-        C -- "Internal Knowledge" --> E[Customer-Owned Content]
-        
-        D -. "Product Docs" .-> C
-        E -. "Company Policies / SOPs" .-> C
+        C -- "External" --> D[SAP Help Pages]
+        C -- "Internal" --> E[Customer-Owned Content]
     end
 
-    subgraph Result [Output]
-        C -- "Grounded Response" --> B
-        B -- "Knowledge-Based Answer" --> A
-    end
+    D -. "Verified Info" .-> C
+    E -. "Private Docs" .-> C
+    C -- "Grounded Answer" --> B
+    B -- "Knowledge Result" --> A
 
-    %% Styling
+    %% Styling for professional look
     style B fill:#0070f2,stroke:#fff,stroke-width:2px,color:#fff
     style C fill:#e5f1ff,stroke:#0070f2,stroke-dasharray: 5 5
     style E fill:#fff9c4,stroke:#fbc02d
