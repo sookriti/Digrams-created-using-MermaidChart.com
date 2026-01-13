@@ -1,0 +1,16 @@
+graph LR
+    subgraph UI [User Interface]
+        A["'Create a new job posting for London'/'Show me the Purchase Order waiting for Approval"] -- Natural Language --> B((Joule))
+    end
+
+    subgraph Logic [Process Orchestration]
+        B -- "AI Interpretation" --> C{Transaction Engine}
+    end
+
+    subgraph Backend [SAP Systems]
+        C -- "Trigger CRUD" --> D[(SAP Backend)]
+        D -- "Status: Success" --> B
+    end
+
+    style B fill:#0070f2,stroke:#fff,stroke-width:2px,color:#fff
+    style D fill:#f4f4f4,stroke:#333
